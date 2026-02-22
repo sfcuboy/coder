@@ -257,8 +257,9 @@ function parseChildrenAsAlertContent(
 	if (typeof parentChildren === "string") {
 		// Children will only be an array if the parsed text contains other
 		// content that can be turned into HTML. If there aren't any, you
-		// just get one big string
-		parentChildren = parentChildren.split("\n");
+		// just get one big string. Wrap it rather than splitting so that
+		// embedded newlines are preserved for line-break conversion later.
+		parentChildren = [parentChildren];
 	}
 	if (!Array.isArray(parentChildren)) {
 		return null;
