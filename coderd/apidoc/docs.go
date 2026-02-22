@@ -15098,9 +15098,11 @@ const docTemplate = `{
                 "web-push",
                 "oauth2",
                 "mcp-server-http",
-                "workspace-sharing"
+                "workspace-sharing",
+                "ai-template-editor"
             ],
             "x-enum-comments": {
+                "ExperimentAITemplateEditor": "Enables the AI assistant in the template editor.",
                 "ExperimentAutoFillParameters": "This should not be taken out of experiments until we have redesigned the feature.",
                 "ExperimentExample": "This isn't used for anything.",
                 "ExperimentMCPServerHTTP": "Enables the MCP HTTP server functionality.",
@@ -15118,7 +15120,8 @@ const docTemplate = `{
                 "Enables web push notifications through the browser.",
                 "Enables OAuth2 provider functionality.",
                 "Enables the MCP HTTP server functionality.",
-                "Enables updating workspace ACLs for sharing with users and groups."
+                "Enables updating workspace ACLs for sharing with users and groups.",
+                "Enables the AI assistant in the template editor."
             ],
             "x-enum-varnames": [
                 "ExperimentExample",
@@ -15128,7 +15131,8 @@ const docTemplate = `{
                 "ExperimentWebPush",
                 "ExperimentOAuth2",
                 "ExperimentMCPServerHTTP",
-                "ExperimentWorkspaceSharing"
+                "ExperimentWorkspaceSharing",
+                "ExperimentAITemplateEditor"
             ]
         },
         "codersdk.ExternalAPIKeyScopes": {

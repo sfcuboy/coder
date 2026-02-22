@@ -28,6 +28,7 @@ import {
 	TooltipContent,
 	TooltipTrigger,
 } from "components/Tooltip/Tooltip";
+import { useEmbeddedMetadata } from "hooks/useEmbeddedMetadata";
 import {
 	ChevronLeftIcon,
 	ExternalLinkIcon,
@@ -38,7 +39,6 @@ import {
 	XIcon,
 } from "lucide-react";
 import { linkToTemplate, useLinks } from "modules/navigation";
-import { useEmbeddedMetadata } from "hooks/useEmbeddedMetadata";
 import {
 	AlertVariant,
 	ProvisionerAlert,
