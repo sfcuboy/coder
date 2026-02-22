@@ -68,17 +68,6 @@ export const components = {
 			underline: "hover",
 		},
 	},
-	MuiPaper: {
-		defaultProps: {
-			elevation: 0,
-		},
-		styleOverrides: {
-			root: ({ theme }) => ({
-				border: `1px solid ${theme.palette.divider}`,
-				backgroundImage: "none",
-			}),
-		},
-	},
 	MuiSkeleton: {
 		styleOverrides: {
 			root: ({ theme }) => ({
