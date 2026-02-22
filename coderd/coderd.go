@@ -823,6 +823,7 @@ func New(options *Options) *API {
 			chatd.WithAgentConnector(api.agentProvider),
 			chatd.WithWorkspaceCreator(api.newChatWorkspaceCreator()),
 			chatd.WithStreamManager(api.chatStreamManager),
+			chatd.WithPubsub(options.Pubsub),
 		)
 	}
 	api.chatProcessor = options.ChatProcessor
@@ -1233,6 +1234,7 @@ func New(options *Options) *API {
 			r.Get("/", api.listChats)
 			r.Post("/", api.createChat)
 			r.Get("/models", api.listChatModels)
+			r.Get("/watch", api.watchChats)
 			r.Route("/providers", func(r chi.Router) {
 				r.Get("/", api.listChatProviders)
 				r.Post("/", api.createChatProvider)
