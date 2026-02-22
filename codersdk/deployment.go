@@ -4266,6 +4266,7 @@ const (
 	ExperimentOAuth2             Experiment = "oauth2"               // Enables OAuth2 provider functionality.
 	ExperimentMCPServerHTTP      Experiment = "mcp-server-http"      // Enables the MCP HTTP server functionality.
 	ExperimentWorkspaceSharing   Experiment = "workspace-sharing"    // Enables updating workspace ACLs for sharing with users and groups.
+	ExperimentAITemplateEditor   Experiment = "ai-template-editor"   // Enables the AI assistant in the template editor.
 )
 
 func (e Experiment) DisplayName() string {
@@ -4286,6 +4287,8 @@ func (e Experiment) DisplayName() string {
 		return "MCP HTTP Server Functionality"
 	case ExperimentWorkspaceSharing:
 		return "Workspace Sharing"
+	case ExperimentAITemplateEditor:
+		return "AI Template Editor"
 	default:
 		// Split on hyphen and convert to title case
 		// e.g. "web-push" -> "Web Push", "mcp-server-http" -> "Mcp Server Http"
@@ -4304,6 +4307,7 @@ var ExperimentsKnown = Experiments{
 	ExperimentOAuth2,
 	ExperimentMCPServerHTTP,
 	ExperimentWorkspaceSharing,
+	ExperimentAITemplateEditor,
 }
 
 // ExperimentsSafe should include all experiments that are safe for
