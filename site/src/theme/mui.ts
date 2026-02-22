@@ -93,13 +93,6 @@ export const components = {
 			},
 		},
 	},
-	MuiChip: {
-		styleOverrides: {
-			root: {
-				backgroundColor: tw.zinc[600],
-			},
-		},
-	},
 	MuiMenu: {
 		defaultProps: {
 			anchorOrigin: {
