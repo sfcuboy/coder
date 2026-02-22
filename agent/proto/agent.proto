@@ -146,6 +146,8 @@ message Stats {
 	// SessionCountSSH is the number of connections received by an agent
 	// that are normal, non-tagged SSH sessions.
 	int64 session_count_ssh = 11;
+	// SessionCountRDP is the number of RDP connections received by an agent.
+	int64 session_count_rdp = 12;
 
 	message Metric {
 		string name = 1;

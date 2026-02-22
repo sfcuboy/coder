@@ -165,6 +165,7 @@ func (b *DBBatcher) Add(
 	b.buf.SessionCountJetBrains = append(b.buf.SessionCountJetBrains, st.SessionCountJetbrains)
 	b.buf.SessionCountReconnectingPTY = append(b.buf.SessionCountReconnectingPTY, st.SessionCountReconnectingPty)
 	b.buf.SessionCountSSH = append(b.buf.SessionCountSSH, st.SessionCountSsh)
+	b.buf.SessionCountRDP = append(b.buf.SessionCountRDP, st.SessionCountRdp)
 	b.buf.ConnectionMedianLatencyMS = append(b.buf.ConnectionMedianLatencyMS, st.ConnectionMedianLatencyMs)
 	b.buf.Usage = append(b.buf.Usage, usage)
 
