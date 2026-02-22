@@ -9,6 +9,7 @@ import {
 } from "components/Table/Table";
 import isEqual from "lodash/isEqual";
 import {
+	createElement,
 	type FC,
 	type HTMLProps,
 	isValidElement,
@@ -334,9 +335,30 @@ function parseChildrenAsAlertContent(
 		remainingChildren.shift();
 	}
 
+	// GitHub's GFM alerts preserve line breaks within alert content,
+	// but the markdown parser treats them as soft wraps (spaces).
+	// Convert embedded newlines in text nodes to <br/> elements to
+	// match GitHub's rendering behavior.
+	const withLineBreaks: ReactNode[] = remainingChildren.flatMap((child, i) => {
+		if (typeof child !== "string" || !child.includes("\n")) {
+			return [child];
+		}
+		const parts = child.split("\n");
+		const result: ReactNode[] = [];
+		for (let j = 0; j < parts.length; j++) {
+			if (j > 0) {
+				result.push(createElement("br", { key: `alert-br-${i}-${j}` }));
+			}
+			if (parts[j]) {
+				result.push(parts[j]);
+			}
+		}
+		return result;
+	});
+
 	return {
 		type: alertType,
-		children: remainingChildren,
+		children: withLineBreaks,
 	};
 }
 
