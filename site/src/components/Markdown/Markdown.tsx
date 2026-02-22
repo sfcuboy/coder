@@ -304,7 +304,17 @@ function parseChildrenAsAlertContent(
 		return null;
 	}
 
-	const alertType = firstEl
+	// The alert marker (e.g., "[!IMPORTANT]") may share a string node
+	// with subsequent content when inline formatting follows on the
+	// next blockquote line. Split on the first newline so we only
+	// test the marker portion.
+	const firstNewline = firstEl.indexOf("\n");
+	const alertCandidate =
+		firstNewline === -1 ? firstEl : firstEl.substring(0, firstNewline);
+	const trailingContent =
+		firstNewline === -1 ? null : firstEl.substring(firstNewline + 1);
+
+	const alertType = alertCandidate
 		.trim()
 		.toLowerCase()
 		.replace("!", "")
@@ -312,6 +322,10 @@ function parseChildrenAsAlertContent(
 		.replace("]", "");
 	if (!githubFlavoredMarkdownAlertTypes.includes(alertType)) {
 		return null;
+	}
+
+	if (trailingContent) {
+		remainingChildren.unshift(trailingContent);
 	}
 
 	const hasLeadingLinebreak =
